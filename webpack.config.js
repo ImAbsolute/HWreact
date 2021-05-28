@@ -11,6 +11,12 @@ module.exports = {
         filename: 'app.js',
         publicPath: '/static/build/',
     },
+    devServer: {
+        port: 8080,
+        historyApiFallback: {
+            index: 'index.html'
+        }
+    },
 
     module: {
         rules: [{

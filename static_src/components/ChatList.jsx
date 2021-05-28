@@ -1,17 +1,22 @@
-import React, { Component } from "react";
-import "../styles/style.css";
+import React from "react";
+import { Link } from "react-router-dom";
+import { List, ListItem } from "material-ui/List";
+import ContentSend from "material-ui/svg-icons/content/send";
 
-export default class ChatList extends Component {
+export default class ChatList extends React.Component {
   render() {
     return (
-      <div className="ChatList">
-        <ul>
-          <li>Chat 1</li>
-          <li>Chat 2</li>
-          <li>Chat 3</li>
-          <li>Chat 4</li>
-        </ul>
-      </div>
+      <List>
+        <Link to="/chat/1/">
+          <ListItem primaryText="Chat 1" leftIcon={<ContentSend />} />
+        </Link>
+        <Link to="/chat/2/">
+          <ListItem primaryText="Chat 2" leftIcon={<ContentSend />} />
+        </Link>
+        <Link to="/chat/3/">
+          <ListItem primaryText="Chat 3" leftIcon={<ContentSend />} />
+        </Link>
+      </List>
     );
   }
 }

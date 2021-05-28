@@ -10,11 +10,8 @@
 
 .layout {
     height: 100%;
-    width: 75%;
     margin: auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
 }
 
@@ -31,9 +28,8 @@
     font-size: 14px;
 }
 
-.wrapper {
+.layout-canvas {
     display: flex;
-    justify-content: space-between;
 }
 
 .header {
@@ -43,5 +39,10 @@
 
 .ChatList {
     width: 25%;
-    background-color: #e2e2e2;
+    background-color: darkgrey;
+}
+
+.layout-right-side {
+    width: 72%;
+    height: 100%;
 }
