@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import "../styles/style.css";
 
 export default class Header extends React.Component {
   static propTypes = {
@@ -13,7 +15,8 @@ export default class Header extends React.Component {
   render() {
     return (
       <div className="header">
-        <span style={{ fontSize: "20px" }}>Чат {this.props.chatId}</span>
+        <span className="chat-span">Чат {this.props.chatId}</span>
+        <Link to="/profile/">Профиль</Link>
       </div>
     );
   }

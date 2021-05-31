@@ -130,12 +130,11 @@ export default class MessageField extends React.Component {
     );
 
     return (
-      (
+      <React.Fragment>
         <div key="messageElements" className="message-field">
           {messageElements}
         </div>
-      ),
-      (
+
         <div key="textInput" style={{ width: "100%", display: "flex" }}>
           <TextField
             name="input"
@@ -152,7 +151,7 @@ export default class MessageField extends React.Component {
             <SendIcon />
           </FloatingActionButton>
         </div>
-      )
+      </React.Fragment>
     );
   }
 }

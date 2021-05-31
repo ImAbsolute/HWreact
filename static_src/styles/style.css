@@ -46,3 +46,13 @@
     width: 72%;
     height: 100%;
 }
+
+.profile {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-span {
+    font-size: 20px;
+    margin: 0 15px 0 0;
+}
