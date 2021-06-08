@@ -16,8 +16,8 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = state =>({
-  profile: state.profile,
+const mapStateToProps = ({chatReducer}) =>({
+  profile: chatReducer.profile,
 });
 
 export default connect(mapStateToProps)(Profile);

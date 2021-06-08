@@ -72,8 +72,8 @@ class ChatList extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  chats: state.chats,
+const mapStateToProps = ({ chatReducer }) => ({
+  chats: chatReducer.chats,
 });
 
 const mapDispatchToProps = (dispatch) =>

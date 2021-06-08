@@ -4,8 +4,10 @@ import Router from "./components/Router.jsx";
 import { BrowserRouter } from "react-router-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { Provider } from "react-redux";
-import { store, persistor } from "./utils/store.js";
+import initStore from "./utils/store.js";
 import { PersistGate } from "redux-persist/integration/react";
+
+const { store, persistor } = initStore();
 
 ReactDOM.render(
   <Provider store={store}>

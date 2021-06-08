@@ -7,8 +7,6 @@ import "../styles/style.css";
 import { bindActionCreators } from "redux";
 import connect from "react-redux/es/connect/connect";
 
-const ENTER_KEYCODE=13;
-
 class MessageField extends React.Component {
   static propTypes = {
     chatId: PropTypes.number.isRequired,
@@ -29,10 +27,8 @@ class MessageField extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  
-
   handleKeyUp = (event) => {
-    if (event.keyCode === ENTER_KEYCODE) {
+    if (event.keyCode === 13) {
       this.handleSendMessage(this.state.input, "me");
     }
   };
@@ -83,8 +79,10 @@ class MessageField extends React.Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  chats: state.chats,
+const mapStateToProps = ({ chatReducer }) => ({
+  chats: chatReducer.chats,
+  messages: chatReducer.chats.messages,
+  messageId: chatReducer.chats.messages[messageId]
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch);

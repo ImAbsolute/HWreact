@@ -1,7 +1,8 @@
 import update from 'react-addons-update';
+import { SEND_MESSAGE } from '../actions/messageActions.js';
 import { ADD_CHAT } from "../actions/chatActions.js";
 
-const initialState = {
+const initialStore = {
     chats: {
         1: { title: 'Чат 1', messageList: [1] },
         2: { title: 'Чат 2', messageList: [2] },
@@ -10,29 +11,33 @@ const initialState = {
     profile: {
         name: "bot",
         age: "99"
-    }
+    },
+    messages: {
+        1: { text: "Привет!", sender: "bot" },
+        2: { text: "Здравствуйте!", sender: "bot" },
+    },
 };
 
 
-export default function chatReducer(state = initialState, action) {
+export default function chatReducer(store = initialStore, action) {
     switch (action.type) {
-        // case SEND_MESSAGE:
-        //     {
-        //         return update(store, {
-        //             chats: {
-        //                 $merge: {
-        //                     [action.chatId]: {
-        //                         title: store.chats[action.chatId].title,
-        //                         messageList: [...store.chats[action.chatId].messageList, action.messageId]
-        //                     }
-        //                 }
-        //             },
-        //         });
-        //     }
+        case SEND_MESSAGE:
+            {
+                return update(store, {
+                    chats: {
+                        $merge: {
+                            [action.chatId]: {
+                                title: store.chats[action.chatId].title,
+                                messageList: [...store.chats[action.chatId].messageList, action.messageId]
+                            }
+                        }
+                    },
+                });
+            }
         case ADD_CHAT:
             {
-                const chatId = Object.keys(state.chats).length + 1;
-                return update(state, {
+                const chatId = Object.keys(store.chats).length + 1;
+                return update(store, {
                     chats: {
                         $merge: {
                             [chatId]: {
@@ -44,6 +49,6 @@ export default function chatReducer(state = initialState, action) {
                 });
             }
         default:
-            return state;
+            return store;
     }
 }

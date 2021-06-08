@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import connect from "react-redux/es/connect/connect";
 import "../styles/style.css";
 
-class Header extends React.Component {
+ class Header extends React.Component {
   static propTypes = {
     chatId: PropTypes.number,
   };
@@ -24,12 +24,15 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  profile: state.profile,
+const mapStateToProps = ({chatReducer}) =>({
+  profile: chatReducer.profile,
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {};
+
+const mapDispatchToProps=(dispatch)=>{
+  return{
+
+  }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps,mapDispatchToProps)(Header);

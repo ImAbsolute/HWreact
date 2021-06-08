@@ -19,10 +19,10 @@ class Layout extends React.Component {
   };
 
   state = {
-    messages: {
-      1: { text: "Привет!", sender: "bot" },
-      2: { text: "Здравствуйте!", sender: "bot" },
-    },
+    // messages: {
+    //   1: { text: "Привет!", sender: "bot" },
+    //   2: { text: "Здравствуйте!", sender: "bot" },
+    // },
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -40,7 +40,7 @@ class Layout extends React.Component {
   }
 
   sendMessage = (message, sender) => {
-    const { messages } = this.state;
+    const { messages } = this.props;
     const { chatId } = this.props;
 
     const messageId = Object.keys(messages).length + 1;
@@ -70,9 +70,8 @@ class Layout extends React.Component {
           <div className="layout-right-side">
             <MessageField
               chatId={this.props.chatId}
-              messages={this.state.messages}
+              messages={this.props.messages}
               sendMessage={this.sendMessage}
-              text={this.state.messages.text}
             />
           </div>
         </div>
@@ -81,7 +80,9 @@ class Layout extends React.Component {
   }
 }
 
-const mapStateToProps = ({}) => ({});
+const mapStateToProps = ({chatReducer}) => ({
+  messages: chatReducer.messages,
+});
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ sendMessage }, dispatch);
