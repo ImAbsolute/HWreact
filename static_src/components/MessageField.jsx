@@ -82,7 +82,6 @@ class MessageField extends React.Component {
 const mapStateToProps = ({ chatReducer }) => ({
   chats: chatReducer.chats,
   messages: chatReducer.chats.messages,
-  messageId: chatReducer.chats.messages[messageId]
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch);
